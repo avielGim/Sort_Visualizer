@@ -1,0 +1,13 @@
+.container {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    top: 100px;
+}
+
+.bar {
+    width: 8px;
+    background-color: blue;
+    display: inline-block;
+    margin: 0 1px;
+}
