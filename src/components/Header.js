@@ -12,37 +12,39 @@ const sleep = (milliseconds) => {
 const Header = (props) => {
     const[array, setArray] = useState([]);
 
-
+    // visual is ok. need to visual comparison and swap color
     const handleBubble = async () => {
         console.log("Bubble click");
-        //var tempArr = bubbleSort(array);
         var animations = bubbleSort(array);
+        console.log("array before animations bubble = " + array);
         await visualSwap(animations);
-        console.log(array);
+        console.log("array after animations bubble = " + array);
     }
 
+    // visual is ok. need to visual comparison and swap color
     const handleMerge = async () => {
         console.log("Merge click");
-        
-        // fix algoritms
         var animations = mergeSort(array);
+        console.log("array before animations merge = " + array);
         await visualSwap(animations);
-        console.log(array);
+        console.log("array after animations merge = " + array);
     }
-  
-    const handleQuick = () => {
+
+    // visual is ok. need to visual comparison and swap color
+    const handleQuick = async () => {
         console.log("Quick click");
         var tempArr = quickSort(array);
-        setArray([...tempArr]);
-        console.log(array);
+        console.log("array before animations quick = " + array);
+        await visualSwap(tempArr);
+        console.log("array after animations quick = " + array);
     }
 
     const generateNewArr = () => {
-        var tempArr = [5, 12, 3, 7];
-        // for(var i = 0 ; i < props.sizeOfArray ; i++){
-        //   const r = Math.floor(Math.random() * props.maximum) + props.minimum;
-        //   tempArr.push(r);
-        // }
+        var tempArr = []; // [50, 20, 60, 10, 80, 40, 1, 90, 30, 70];
+        for(var i = 0 ; i < props.sizeOfArray ; i++){
+          const r = Math.floor(Math.random() * props.maximum) + props.minimum;
+          tempArr.push(r);
+        }
         setArray([...tempArr]);
     }
 
@@ -51,11 +53,23 @@ const Header = (props) => {
         for(let i = 0 ; i < anim.length ; i++){
             const [index, newHeight] = anim[i];
             array[index] = newHeight;
-            await sleep(50);
+            await sleep(10);
             setArray([...array]);
         }
         console.log("finish sort");
     }
+
+    // const visualSwapBubble = async (anim) => {  
+    //     
+    // }
+
+    // const visualSwapMerge = async (anim) => {  
+    // 
+    // }
+
+    // const visualSwapQuick = async (anim) => {  
+    // 
+    // }
 
     return (
       <div>
