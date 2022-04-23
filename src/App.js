@@ -9,14 +9,15 @@ const App = () => {
   const [sizeArr, setSize] = useState(50);
   const [minRnage, setRange] = useState(50);
   const [maxRange, setMax] = useState(50);
-  const [speed, setSpeed] = useState(5);
+  const [speed, setSpeed] = useState(100);
   
   return (
     <div className="App">
       <Header 
         sizeOfArray={sizeArr}
         minimum={minRnage}
-        maximum={maxRange}/>
+        maximum={maxRange}
+        speed={speed}/>
       {/* heade */}
       {/* body where the sort are visual */}
     </div>

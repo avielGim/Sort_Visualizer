@@ -13,17 +13,20 @@ function bubbleAlgo(array, animations){
     while (x > 0) {
         let swapped = false;
         for (let i = 0; i < x; ++i) {
-            // animations.push([comparison1, i , i+1]);  // compare visual
-            // animations.push([comparison2, i , i+1]);  // compare visual
+            animations.push(['compare', i , i+1]);  // compare visual
+            // ? animations.push([comparison2, i , i+1]);  // compare visual
             if (array[i] > array[i + 1]) {
                 swapped = true;
-                animations.push([i+1, array[i]]);
-                animations.push([i, array[i+1]]);
+                animations.push(['swap', i+1, array[i]]);
+                animations.push(['swap', i, array[i+1]]);
                 swap(array, i, i + 1);
-             }
-         }
+            }
+            animations.push(['ready', i , i+1]);  // compare visual
+        }
         if (!swapped) break;
+        animations.push(['position', x, x]);
         x--;
+        // animations.push(['inPlace', x, 0]);  // inPlace visual
      }
 }
 

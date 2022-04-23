@@ -11,3 +11,24 @@
     display: inline-block;
     margin: 0 1px;
 }
+
+.compare {
+    width: 8px;
+    background-color: yellow;
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.position {
+    width: 8px;
+    background-color: green;
+    display: inline-block;
+    margin: 0 1px;    
+}
+
+.ready {
+    width: 8px;
+    background-color: red;
+    display: inline-block;
+    margin: 0 1px;    
+}

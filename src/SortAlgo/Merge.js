@@ -21,26 +21,28 @@ function mergeAlgo(arr1, start, mid, end, arr2, animations){
     let k = start;
     let i = start;
     let j = mid + 1;
+    animations.push(['compare', start, end]); // compare visual
     while(i <= mid && j <= end){
-        // animations.push([i, j]); // compare visual
+        // animations.push(['compare', i, j]); // compare visual
         if(arr2[i] <= arr2[j]){
-            animations.push([k, arr2[i]]);
+            animations.push(['swap', k, arr2[i]]);
             arr1[k++] = arr2[i++];
         } else {
-            animations.push([k, arr2[j]]);
+            animations.push(['swap', k, arr2[j]]);
             arr1[k++] = arr2[j++];
         }
     }
 
     while(i <= mid){
-        animations.push([k, arr2[i]]);
+        animations.push(['swap', k, arr2[i]]);
         arr1[k++] = arr2[i++];
     }
 
     while(j <= end){
-        animations.push([k, arr2[j]]);
+        animations.push(['swap', k, arr2[j]]);
         arr1[k++] = arr2[j++];
     }
+    animations.push(['ready', start, end]); // compare visual
 }
 
 // psuedo code
